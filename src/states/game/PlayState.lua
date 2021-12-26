@@ -8,13 +8,12 @@ function PlayState:init()
 end
 
 function PlayState:enter(params)
-end
-
-function PlayState:exit()
+	self.level = LevelGenerator.generate(100, 13)
 end
 
 function PlayState:update(dt)
 	Timer.update(dt)
+	self.level:update(dt)
 	self:updateCamera()
 end
 
@@ -28,6 +27,8 @@ function PlayState:render()
     love.graphics.draw(gTextures['background'], gFrames['background'][1], math.floor(-self.backgroundX + 288),
         gTextures['background']:getHeight() / 3 * 2, 0, 1, -1)
 	love.graphics.translate(-math.floor(self.camX), -math.floor(self.camY))
+
+	self.level:render()
 
 	love.graphics.pop()
 end

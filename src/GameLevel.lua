@@ -2,17 +2,10 @@ GameLevel = Class{}
 
 function GameLevel:init(entities, objects, tilemap)
     self.entities = entities
-    self.objects = objects
     self.tileMap = tilemap
 end
 
 function GameLevel:clear()
-    for i = #self.objects, 1, -1 do
-        if not self.objects[i] then
-            table.remove(self.objects, i)
-        end
-    end
-
     for i = #self.entities, 1, -1 do
         if not self.objects[i] then
             table.remove(self.objects, i)

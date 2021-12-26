@@ -3,7 +3,7 @@ require 'src/Dependencies'
 
 function love.load()
 	--love.graphics.setFont(gFonts['medium'])
-    love.window.setTitle('Final Project')
+    love.window.setTitle('Skeleton Fighter')
 
     math.randomseed(os.time())
     

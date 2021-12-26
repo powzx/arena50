@@ -13,7 +13,9 @@ require 'src/Util'
 
 require 'src/states/BaseState'
 require 'src/states/game/PlayState'
+require 'src/states/player/PlayerFallingState'
 require 'src/states/player/PlayerIdleState'
+require 'src/states/player/PlayerJumpState'
 require 'src/states/player/PLayerWalkingState'
 
 gSounds = {

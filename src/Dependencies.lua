@@ -13,6 +13,8 @@ require 'src/Util'
 
 require 'src/states/BaseState'
 require 'src/states/game/PlayState'
+require 'src/states/player/PlayerIdleState'
+require 'src/states/player/PLayerWalkingState'
 
 gSounds = {
 
@@ -27,7 +29,7 @@ gTextures = {
 gFrames = {
 	['background'] = GenerateQuads(gTextures['background'], 288, 208),
 	['tileset'] = GenerateQuads(gTextures['tileset'], 16, 16),
-	['player'] = GenerateQuads(gTextures['player'], 37, 50)
+	['player'] = GenerateQuads(gTextures['player'], 50, 37)
 }
 
 gFonts = {

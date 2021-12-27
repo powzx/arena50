@@ -30,15 +30,15 @@ function PlayerFallingState:update(dt)
 		self.player.stateMachine:change('idle')
 	end
 
-	local limitX = self.player:checkTileSide()
-	if limitX then
-		self.player.dx = 0
-		if self.player.direction == 'left' then
-			self.player.x = limitX + TILE_SIZE - 20
-		elseif self.player.direction == 'right' then
-			self.player.x = limitX - PLAYER_WIDTH + 20
-		end
-	end
+	-- local limitX = self.player:checkTileSide()
+	-- if limitX then
+	-- 	self.player.dx = 0
+	-- 	if self.player.direction == 'left' then
+	-- 		self.player.x = limitX + TILE_SIZE - 20
+	-- 	elseif self.player.direction == 'right' then
+	-- 		self.player.x = limitX - PLAYER_WIDTH + 20
+	-- 	end
+	-- end
 
 	if self.player.x <= 0 then
     	self.player.x = 0

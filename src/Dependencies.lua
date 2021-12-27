@@ -39,7 +39,8 @@ gTextures = {
 	['enemy-hit'] = love.graphics.newImage('graphics/enemy_hit.png'),
 	['enemy-dead'] = love.graphics.newImage('graphics/enemy_dead.png'),
 	['enemy-attack'] = love.graphics.newImage('graphics/enemy_attack.png'),
-	['enemy-walk'] = love.graphics.newImage('graphics/enemy_walk.png')
+	['enemy-walk'] = love.graphics.newImage('graphics/enemy_walk.png'),
+	['hearts'] = love.graphics.newImage('graphics/hearts.png')
 }
 
 gFrames = {
@@ -50,7 +51,8 @@ gFrames = {
 	['enemy-hit'] = GenerateQuads(gTextures['enemy-hit'], 30, 32),
 	['enemy-dead'] = GenerateQuads(gTextures['enemy-dead'], 33, 32),
 	['enemy-attack'] = GenerateQuads(gTextures['enemy-attack'], 43, 37),
-	['enemy-walk'] = GenerateQuads(gTextures['enemy-walk'], 22, 33)
+	['enemy-walk'] = GenerateQuads(gTextures['enemy-walk'], 22, 33),
+	['hearts'] = GenerateQuads(gTextures['hearts'], 16, 16)
 }
 
 gFonts = {

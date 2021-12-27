@@ -25,7 +25,7 @@ function Enemy:init(map)
 	self.map = map
 	self.direction = 'left'
 
-	self.health = 100
+	self.health = 6
 	self.isDead = false
 end
 

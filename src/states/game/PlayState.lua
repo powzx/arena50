@@ -21,6 +21,10 @@ end
 
 function PlayState:update(dt)
 	self.map:update(dt)
+
+	if self.map.player.health <= 0 then
+		gStateMachine:change('game-over', {set = self.set, kills = self.map.player.kills})
+	end
 end
 
 function PlayState:render()

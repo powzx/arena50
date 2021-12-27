@@ -2,7 +2,7 @@ love.graphics.setDefaultFilter('nearest', 'nearest')
 require 'src/Dependencies'
 
 function love.load()
-	--love.graphics.setFont(gFonts['medium'])
+	love.graphics.setFont(gFonts['medium'])
     love.window.setTitle('Arena 50')
 
     math.randomseed(os.time())
@@ -15,10 +15,11 @@ function love.load()
     })
 
     gStateMachine = StateMachine {
-        --['start'] = function() return StartState() end,
-        ['play'] = function() return PlayState() end
+        ['start'] = function() return StartState() end,
+        ['play'] = function() return PlayState() end,
+        ['game-over'] = function() return GameOverState() end
     }
-    gStateMachine:change('play')
+    gStateMachine:change('start')
 
     --gSounds['music']:setLooping(true)
     --gSounds['music']:setVolume(0.5)

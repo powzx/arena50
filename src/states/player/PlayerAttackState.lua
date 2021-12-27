@@ -10,6 +10,13 @@ function PlayerAttackState:init(player)
 	self.player.currentAnimation = self.animation
 
 	self.player.hitbox.isEffective = true
+
+	for k, enemy in pairs(self.player.map.enemy) do
+		if self.player.hitbox:collides(enemy.hurtbox) then
+			enemy.health = enemy.health - 20
+			enemy.stateMachine:change('hit')
+		end
+	end
 end
 
 function PlayerAttackState:update(dt)
@@ -17,11 +24,5 @@ function PlayerAttackState:update(dt)
 	if self.animation.isDone then
 		self.player.hitbox.isEffective = false
 		self.player.stateMachine:change('idle')
-	end
-
-	for k, enemy in pairs(self.player.map.enemy) do
-		if self.player.hitbox:collides(enemy.hurtbox) then
-			enemy.stateMachine:change('hit')
-		end
 	end
 end

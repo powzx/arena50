@@ -15,12 +15,15 @@ function Enemy:init(map)
 
 	self.stateMachine = StateMachine {
 		['idle'] = function() return EnemyIdleState(self) end,
-		['hit'] = function() return EnemyHitState(self) end
+		['hit'] = function() return EnemyHitState(self) end,
+		['dead'] = function() return EnemyDeadState(self) end
 	}
 	self.stateMachine:change('idle')
 
 	self.map = map
 	self.direction = 'left'
+
+	self.health = 100
 end
 
 function Enemy:update(dt)

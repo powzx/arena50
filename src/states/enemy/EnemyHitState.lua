@@ -15,4 +15,8 @@ function EnemyHitState:update(dt)
 	if self.animation.isDone then
 		self.enemy.stateMachine:change('idle')
 	end
+
+	if self.enemy.health <= 0 then
+		self.enemy.stateMachine:change('dead')
+	end
 end

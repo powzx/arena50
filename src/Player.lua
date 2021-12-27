@@ -24,6 +24,8 @@ function Player:init(map)
 
 	self.map = map
 	self.direction = 'right'
+
+	self.health = 100
 end
 
 function Player:update(dt)

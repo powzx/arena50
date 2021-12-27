@@ -9,6 +9,7 @@ function StateMachine:init(states)
 	}
 	self.states = states or {}
 	self.current = self.empty
+	self.name = 'empty'
 end
 
 function StateMachine:change(stateName, enterParams)
@@ -16,6 +17,7 @@ function StateMachine:change(stateName, enterParams)
 	self.current:exit()
 	self.current = self.states[stateName]()
 	self.current:enter(enterParams)
+	self.name = stateName
 end
 
 function StateMachine:update(dt)

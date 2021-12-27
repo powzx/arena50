@@ -8,6 +8,8 @@ function EnemyDeadState:init(enemy)
 		isLoop = false
 	}
 	self.enemy.currentAnimation = self.animation
+
+	self.enemy.isDead = true
 end
 
 function EnemyDeadState:update(dt)

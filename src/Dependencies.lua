@@ -21,6 +21,7 @@ require 'src/states/player/PlayerFallingState'
 require 'src/states/player/PlayerIdleState'
 require 'src/states/player/PlayerJumpState'
 require 'src/states/player/PLayerWalkingState'
+require 'src/states/enemy/EnemyAttackState'
 require 'src/states/enemy/EnemyIdleState'
 require 'src/states/enemy/EnemyHitState'
 require 'src/states/enemy/EnemyDeadState'
@@ -35,7 +36,8 @@ gTextures = {
 	['player'] = love.graphics.newImage('graphics/player.png'),
 	['enemy-idle'] = love.graphics.newImage('graphics/enemy_idle.png'),
 	['enemy-hit'] = love.graphics.newImage('graphics/enemy_hit.png'),
-	['enemy-dead'] = love.graphics.newImage('graphics/enemy_dead.png')
+	['enemy-dead'] = love.graphics.newImage('graphics/enemy_dead.png'),
+	['enemy-attack'] = love.graphics.newImage('graphics/enemy_attack.png')
 }
 
 gFrames = {
@@ -44,7 +46,8 @@ gFrames = {
 	['player'] = GenerateQuads(gTextures['player'], 50, 37),
 	['enemy-idle'] = GenerateQuads(gTextures['enemy-idle'], 24, 32),
 	['enemy-hit'] = GenerateQuads(gTextures['enemy-hit'], 30, 32),
-	['enemy-dead'] = GenerateQuads(gTextures['enemy-dead'], 33, 32)
+	['enemy-dead'] = GenerateQuads(gTextures['enemy-dead'], 33, 32),
+	['enemy-attack'] = GenerateQuads(gTextures['enemy-attack'], 43, 37)
 }
 
 gFonts = {

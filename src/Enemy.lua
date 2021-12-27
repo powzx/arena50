@@ -11,12 +11,13 @@ function Enemy:init(map)
 	self.height = ENEMY_HEIGHT
 
 	self.hurtbox = Hurtbox(self, 8, -12)
-	self.hitbox = Hitbox(self)
+	self.hitbox = Hitbox(self, -10, 24, -14)
 
 	self.stateMachine = StateMachine {
 		['idle'] = function() return EnemyIdleState(self) end,
 		['hit'] = function() return EnemyHitState(self) end,
-		['dead'] = function() return EnemyDeadState(self) end
+		['dead'] = function() return EnemyDeadState(self) end,
+		['attack'] = function() return EnemyAttackState(self) end
 	}
 	self.stateMachine:change('idle')
 
@@ -24,6 +25,7 @@ function Enemy:init(map)
 	self.direction = 'left'
 
 	self.health = 100
+	self.isDead = false
 end
 
 function Enemy:update(dt)

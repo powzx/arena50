@@ -12,4 +12,8 @@ end
 
 function EnemyIdleState:update(dt)
 	self.enemy.currentAnimation:update(dt)
+
+	if math.abs(self.enemy.x - self.enemy.map.player.x + PLAYER_WIDTH) < 200 then
+		self.enemy.stateMachine:change('attack')
+	end
 end

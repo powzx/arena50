@@ -5,6 +5,8 @@ function Map:init(width, height)
 	self.width = width
 	self.height = height
 
+	self.player = Player(self)
+
 	self.enemy = {}
 	self:spawnEnemies()
 
@@ -26,6 +28,8 @@ function Map:init(width, height)
 end
 
 function Map:update(dt)
+	self.player:update(dt)
+	
 	for k, enemy in pairs(self.enemy) do
 		enemy:update(dt)
 	end
@@ -41,6 +45,8 @@ function Map:render()
 	for k, enemy in pairs(self.enemy) do
 		enemy:render(dt)
 	end
+	
+	self.player:render()
 end
 
 function Map:pointToTile(x, y)

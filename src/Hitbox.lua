@@ -1,16 +1,19 @@
 Hitbox = Class{}
 
-function Hitbox:init(entity)
+function Hitbox:init(entity, offsetXLeft, offsetXRight, offsetWidth)
 	self.entity = entity
-	
+	self.offsetXLeft = offsetXLeft
+	self.offsetXRight = offsetXRight
+	self.offsetWidth = offsetWidth
+
 	if self.entity.direction == 'left' then
-		self.x = self.entity.x + 5
+		self.x = self.entity.x + self.offsetXLeft
 	elseif self.entity.direction == 'right' then
-		self.x = self.entity.x + 30
+		self.x = self.entity.x + self.offsetXRight
 	end
 	self.y = self.entity.y
 
-	self.width = self.entity.width - 35
+	self.width = self.entity.width + self.offsetWidth
 	self.height = self.entity.height
 
 	self.isEffective = false
@@ -18,9 +21,9 @@ end
 
 function Hitbox:update(dt)
 	if self.entity.direction == 'left' then
-		self.x = self.entity.x + 5
+		self.x = self.entity.x + self.offsetXLeft
 	elseif self.entity.direction == 'right' then
-		self.x = self.entity.x + 30
+		self.x = self.entity.x + self.offsetXRight
 	end
 	self.y = self.entity.y
 end

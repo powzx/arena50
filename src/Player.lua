@@ -11,7 +11,7 @@ function Player:init(map)
 	self.height = PLAYER_HEIGHT
 
 	self.hurtbox = Hurtbox(self, 20, -40)
-	self.hitbox = Hitbox(self)
+	self.hitbox = Hitbox(self, 5, 30, -35)
 
 	self.stateMachine = StateMachine {
 		['idle'] = function() return PlayerIdleState(self) end,

@@ -25,6 +25,7 @@ require 'src/states/enemy/EnemyAttackState'
 require 'src/states/enemy/EnemyIdleState'
 require 'src/states/enemy/EnemyHitState'
 require 'src/states/enemy/EnemyDeadState'
+require 'src/states/enemy/EnemyWalkingState'
 
 gSounds = {
 
@@ -37,7 +38,8 @@ gTextures = {
 	['enemy-idle'] = love.graphics.newImage('graphics/enemy_idle.png'),
 	['enemy-hit'] = love.graphics.newImage('graphics/enemy_hit.png'),
 	['enemy-dead'] = love.graphics.newImage('graphics/enemy_dead.png'),
-	['enemy-attack'] = love.graphics.newImage('graphics/enemy_attack.png')
+	['enemy-attack'] = love.graphics.newImage('graphics/enemy_attack.png'),
+	['enemy-walk'] = love.graphics.newImage('graphics/enemy_walk.png')
 }
 
 gFrames = {
@@ -47,7 +49,8 @@ gFrames = {
 	['enemy-idle'] = GenerateQuads(gTextures['enemy-idle'], 24, 32),
 	['enemy-hit'] = GenerateQuads(gTextures['enemy-hit'], 30, 32),
 	['enemy-dead'] = GenerateQuads(gTextures['enemy-dead'], 33, 32),
-	['enemy-attack'] = GenerateQuads(gTextures['enemy-attack'], 43, 37)
+	['enemy-attack'] = GenerateQuads(gTextures['enemy-attack'], 43, 37),
+	['enemy-walk'] = GenerateQuads(gTextures['enemy-walk'], 22, 33)
 }
 
 gFonts = {

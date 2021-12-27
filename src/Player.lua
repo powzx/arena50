@@ -38,10 +38,10 @@ function Player:render()
 	love.graphics.draw(gTextures['player'], gFrames['player'][self.currentAnimation:getCurrentFrame()],
         math.floor(self.x) + PLAYER_WIDTH / 2, math.floor(self.y) + PLAYER_HEIGHT / 2, 0, 
         self.direction == 'right' and 1 or -1, 1, PLAYER_WIDTH / 2, PLAYER_HEIGHT / 2)
-	self.hurtbox:render()
-	if self.hitbox.isEffective then
-		self.hitbox:render()
-	end
+	--self.hurtbox:render()
+	--if self.hitbox.isEffective then
+	--	self.hitbox:render()
+	--end
 end
 
 function Player:checkTileBeneath()

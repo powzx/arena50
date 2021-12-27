@@ -11,13 +11,14 @@ function Enemy:init(map)
 	self.height = ENEMY_HEIGHT
 
 	self.hurtbox = Hurtbox(self, 8, -12)
-	self.hitbox = Hitbox(self, -10, 24, -14)
+	self.hitbox = Hitbox(self, -14, 20, -2)
 
 	self.stateMachine = StateMachine {
 		['idle'] = function() return EnemyIdleState(self) end,
 		['hit'] = function() return EnemyHitState(self) end,
 		['dead'] = function() return EnemyDeadState(self) end,
-		['attack'] = function() return EnemyAttackState(self) end
+		['attack'] = function() return EnemyAttackState(self) end,
+		['walk'] = function() return EnemyWalkingState(self) end
 	}
 	self.stateMachine:change('idle')
 
@@ -38,8 +39,8 @@ function Enemy:render()
 	love.graphics.draw(gTextures['enemy-' .. self.stateMachine.name], gFrames['enemy-' .. self.stateMachine.name][self.currentAnimation:getCurrentFrame()],
         math.floor(self.x) + ENEMY_WIDTH / 2, math.floor(self.y) + ENEMY_HEIGHT / 2, 0, 
         self.direction == 'right' and 1 or -1, 1, ENEMY_WIDTH / 2, ENEMY_HEIGHT / 2)
-	self.hurtbox:render()
-	if self.hitbox.isEffective then
-		self.hitbox:render()
-	end
+	--self.hurtbox:render()
+	--if self.hitbox.isEffective then
+	--	self.hitbox:render()
+	--end
 end

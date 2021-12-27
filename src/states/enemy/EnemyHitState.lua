@@ -19,6 +19,7 @@ function EnemyHitState:update(dt)
 	if self.enemy.health <= 0 then
 		self.enemy.map.player.health = self.enemy.map.player.health + 2
 		self.enemy.map.player.kills = self.enemy.map.player.kills + 1
+		table.insert(self.enemy.map.deadEnemy, self.enemy)
 		self.enemy.stateMachine:change('dead')
 	end
 end

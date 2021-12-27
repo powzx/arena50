@@ -1,6 +1,9 @@
 StartState = Class{__includes = BaseState}
 
 function StartState:init()
+end
+
+function StartState:enter(params)
 	self.set = nil
 
 	local selector = math.random(1, 4)
@@ -17,7 +20,7 @@ end
 
 function StartState:update(dt)
 	if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
-		gStateMachine:change('play')
+		gStateMachine:change('play', {kills = 0})
 	end
 end
 

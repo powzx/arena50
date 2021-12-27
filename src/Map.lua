@@ -9,6 +9,7 @@ function Map:init(width, height, set)
 	self.player = Player(self)
 
 	self.enemy = {}
+	self.deadEnemy = {}
 	self:spawnEnemies()
 
 	for y = 1, self.height do

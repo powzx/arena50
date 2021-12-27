@@ -21,15 +21,21 @@ function PlayerWalkingState:update(dt)
             self.player.direction = 'left'
             if love.keyboard.wasPressed(JUMP) then
                 self.player.stateMachine:change('jump')
+            elseif love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
+                self.player.stateMachine:change('attack')
             end
         elseif love.keyboard.isDown(RIGHT) then
             self.player.x = self.player.x + PLAYER_WALK_SPEED * dt
             self.player.direction = 'right'
             if love.keyboard.wasPressed(JUMP) then
                 self.player.stateMachine:change('jump')
+            elseif love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
+                self.player.stateMachine:change('attack')
             end
         elseif love.keyboard.wasPressed(JUMP) then
             self.player.stateMachine:change('jump')
+        elseif love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
+            self.player.stateMachine:change('attack')
         end
     end
 
@@ -39,5 +45,9 @@ function PlayerWalkingState:update(dt)
 
     if self.player.x >= VIRTUAL_WIDTH - PLAYER_WIDTH then
     	self.player.x = VIRTUAL_WIDTH - PLAYER_WIDTH
+    end
+
+    if not self.player:checkTileBeneath() then
+        self.player.stateMachine:change('falling')
     end
 end

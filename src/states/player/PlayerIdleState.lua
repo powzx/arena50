@@ -17,5 +17,11 @@ function PlayerIdleState:update(dt)
         self.player.stateMachine:change('walking')
     elseif love.keyboard.wasPressed(JUMP) then
     	self.player.stateMachine:change('jump')
+    elseif love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
+    	self.player.stateMachine:change('attack')
     end
+
+    if not self.player:checkTileBeneath() then
+		self.player.stateMachine:change('falling')
+	end
 end

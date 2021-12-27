@@ -5,6 +5,9 @@ function Map:init(width, height)
 	self.width = width
 	self.height = height
 
+	self.enemy = {}
+	self:spawnEnemies()
+
 	for y = 1, self.height do
         table.insert(self.tiles, {})
     end
@@ -23,6 +26,9 @@ function Map:init(width, height)
 end
 
 function Map:update(dt)
+	for k, enemy in pairs(self.enemy) do
+		enemy:update(dt)
+	end
 end
 
 function Map:render()
@@ -30,6 +36,10 @@ function Map:render()
 		for y = 1, self.height do
 			self.tiles[y][x]:render()
 		end
+	end
+
+	for k, enemy in pairs(self.enemy) do
+		enemy:render(dt)
 	end
 end
 
@@ -39,4 +49,8 @@ function Map:pointToTile(x, y)
     end
     
     return self.tiles[math.floor(y / TILE_SIZE) + 1][math.floor(x / TILE_SIZE) + 1]
+end
+
+function Map:spawnEnemies()
+	table.insert(self.enemy, Enemy(self))
 end

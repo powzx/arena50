@@ -18,4 +18,10 @@ function PlayerAttackState:update(dt)
 		self.player.hitbox.isEffective = false
 		self.player.stateMachine:change('idle')
 	end
+
+	for k, enemy in pairs(self.player.map.enemy) do
+		if self.player.hitbox:collides(enemy.hurtbox) then
+			enemy.stateMachine:change('hit')
+		end
+	end
 end

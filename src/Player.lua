@@ -10,7 +10,7 @@ function Player:init(map)
 	self.width = PLAYER_WIDTH
 	self.height = PLAYER_HEIGHT
 
-	self.hurtbox = Hurtbox(self)
+	self.hurtbox = Hurtbox(self, 20, -40)
 	self.hitbox = Hitbox(self)
 
 	self.stateMachine = StateMachine {

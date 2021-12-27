@@ -22,6 +22,7 @@ require 'src/states/player/PlayerIdleState'
 require 'src/states/player/PlayerJumpState'
 require 'src/states/player/PLayerWalkingState'
 require 'src/states/enemy/EnemyIdleState'
+require 'src/states/enemy/EnemyHitState'
 
 gSounds = {
 
@@ -31,14 +32,16 @@ gTextures = {
 	['background'] = love.graphics.newImage('graphics/background_grassland.png'),
 	['tileset'] = love.graphics.newImage('graphics/tileset_grassland.png'),
 	['player'] = love.graphics.newImage('graphics/player.png'),
-	['enemy-idle'] = love.graphics.newImage('graphics/enemy_idle.png')
+	['enemy-idle'] = love.graphics.newImage('graphics/enemy_idle.png'),
+	['enemy-hit'] = love.graphics.newImage('graphics/enemy_hit.png')
 }
 
 gFrames = {
 	['background'] = GenerateQuads(gTextures['background'], 288, 208),
 	['tileset'] = GenerateQuads(gTextures['tileset'], 16, 16),
 	['player'] = GenerateQuads(gTextures['player'], 50, 37),
-	['enemy-idle'] = GenerateQuads(gTextures['enemy-idle'], 24, 32)
+	['enemy-idle'] = GenerateQuads(gTextures['enemy-idle'], 24, 32),
+	['enemy-hit'] = GenerateQuads(gTextures['enemy-hit'], 30, 32)
 }
 
 gFonts = {

@@ -2,7 +2,7 @@ Enemy = Class{__includes = BaseState}
 
 function Enemy:init(map)
 	self.x = VIRTUAL_WIDTH - ENEMY_WIDTH
-	self.y = VIRTUAL_HEIGHT / 2
+	self.y = (GROUND_LEVEL - 1) * TILE_SIZE - ENEMY_HEIGHT
 
 	self.dx = 0
 	self.dy = 0
@@ -10,11 +10,12 @@ function Enemy:init(map)
 	self.width = ENEMY_WIDTH
 	self.height = ENEMY_HEIGHT
 
-	self.hurtbox = Hurtbox(self)
+	self.hurtbox = Hurtbox(self, 8, -12)
 	self.hitbox = Hitbox(self)
 
 	self.stateMachine = StateMachine {
 		['idle'] = function() return EnemyIdleState(self) end,
+		['hit'] = function() return EnemyHitState(self) end
 	}
 	self.stateMachine:change('idle')
 

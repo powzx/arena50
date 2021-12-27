@@ -1,11 +1,22 @@
 PlayState = Class{__includes = BaseState}
 
 function PlayState:init()
+	self.set = nil
 
+	local selector = math.random(1, 4)
+	if selector == 1 then
+		self.set = 'grassland'
+	elseif selector == 2 then
+		self.set = 'autumn'
+	elseif selector == 3 then
+		self.set = 'tropics'
+	elseif selector == 4 then
+		self.set = 'winter'
+	end
 end
 
 function PlayState:enter(params)
-	self.map = Map(VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
+	self.map = Map(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, self.set)
 end
 
 function PlayState:update(dt)
@@ -15,7 +26,7 @@ end
 function PlayState:render()
 	love.graphics.push()
 
-	love.graphics.draw(gTextures['background'], gFrames['background'][1], 0, 0)
+	love.graphics.draw(gTextures['background-' .. self.set], gFrames['background-' .. self.set][1], 0, 0)
 	self.map:render()
 
 	local health = self.map.player.health

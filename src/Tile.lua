@@ -1,9 +1,10 @@
 Tile = Class{}
 
-function Tile:init(x, y, id)
+function Tile:init(x, y, id, set)
 	self.x = x
 	self.y = y
 	self.id = id
+	self.set = set
 
 	self.width = TILE_SIZE
 	self.height = TILE_SIZE
@@ -13,7 +14,7 @@ function Tile:init(x, y, id)
 end
 
 function Tile:render()
-	love.graphics.draw(gTextures['tileset'], gFrames['tileset'][self.id], self.coordinateX, self.coordinateY)
+	love.graphics.draw(gTextures['tileset-' .. self.set], gFrames['tileset-' .. self.set][self.id], self.coordinateX, self.coordinateY)
 end
 
 function Tile:collides(target)

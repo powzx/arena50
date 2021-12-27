@@ -1,7 +1,7 @@
 Enemy = Class{__includes = BaseState}
 
 function Enemy:init(map)
-	self.x = VIRTUAL_WIDTH - ENEMY_WIDTH
+	self.x = math.random(0, VIRTUAL_WIDTH - ENEMY_WIDTH)
 	self.y = (GROUND_LEVEL - 1) * TILE_SIZE - ENEMY_HEIGHT
 
 	self.dx = 0

@@ -1,9 +1,10 @@
 Map = Class {}
 
-function Map:init(width, height)
+function Map:init(width, height, set)
 	self.tiles = {}
 	self.width = width
 	self.height = height
+	self.set = set
 
 	self.player = Player(self)
 
@@ -17,11 +18,11 @@ function Map:init(width, height)
 	for x = 1, self.width do
 		for y = 1, self.height do
 			if y > GROUND_LEVEL then
-				table.insert(self.tiles[y], Tile(x, y, TILE_INNER_ID))
+				table.insert(self.tiles[y], Tile(x, y, TILE_INNER_ID, self.set))
 			elseif y == GROUND_LEVEL then
-				table.insert(self.tiles[y], Tile(x, y, TILE_TOP_ID))
+				table.insert(self.tiles[y], Tile(x, y, TILE_TOP_ID, self.set))
 			else
-				table.insert(self.tiles[y], Tile(x, y, TILE_EMPTY_ID))
+				table.insert(self.tiles[y], Tile(x, y, TILE_EMPTY_ID, self.set))
 			end
 		end
 	end
@@ -58,5 +59,9 @@ function Map:pointToTile(x, y)
 end
 
 function Map:spawnEnemies()
-	table.insert(self.enemy, Enemy(self))
+	local numOfEnemies = math.random(1, 4)
+
+	for i = 1, numOfEnemies do
+		table.insert(self.enemy, Enemy(self))
+	end
 end

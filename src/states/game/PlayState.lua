@@ -32,11 +32,12 @@ function PlayState:update(dt)
 
 	if #self.map.enemy == #self.map.deadEnemy then
 		self.isComplete = true
-		Timer.update(dt)
+	end
 
-		Timer.after(3, function()
+	if self.isComplete then
+		if love.keyboard.wasPressed('right') then
 			gStateMachine:change('play', {kills = self.map.player.kills})
-		end)
+		end
 	end
 end
 

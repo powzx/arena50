@@ -1,11 +1,11 @@
 EnemyWalkingState = Class{__includes = BaseState}
 
-function EnemyWalkingState:init(enemy, animationInfo)
+function EnemyWalkingState:init(enemy)
 	self.enemy = enemy
 	self.animation = Animation {
-		frames = animationInfo['frames'],
-		interval = animationInfo['interval'],
-		isLoop = animationInfo['isLoop']
+		frames = self.enemy.animations['walk']['frames'],
+		interval = self.enemy.animations['walk']['interval'],
+		isLoop = self.enemy.animations['walk']['isLoop']
 	}
 	self.enemy.currentAnimation = self.animation
 end
@@ -15,9 +15,9 @@ function EnemyWalkingState:enter(params)
 	self.counter = 0
 
 	if self.enemy.direction == 'left' then
-		self.enemy.dx = -ENEMY_WALK_SPEED
+		self.enemy.dx = -self.enemy.walkSpeed
 	elseif self.enemy.direction == 'right' then
-		self.enemy.dx = ENEMY_WALK_SPEED
+		self.enemy.dx = self.enemy.walkSpeed
 	end
 end
 
@@ -44,7 +44,7 @@ function EnemyWalkingState:update(dt)
     	self.enemy.x = 0
     end
 
-    if self.enemy.x >= VIRTUAL_WIDTH - ENEMY_WIDTH then
-    	self.enemy.x = VIRTUAL_WIDTH - ENEMY_WIDTH
+    if self.enemy.x >= VIRTUAL_WIDTH - self.enemy.width then
+    	self.enemy.x = VIRTUAL_WIDTH - self.enemy.width
     end
 end

@@ -1,11 +1,11 @@
 EnemyIdleState = Class{__includes = BaseState}
 
-function EnemyIdleState:init(enemy, animationInfo)
+function EnemyIdleState:init(enemy)
 	self.enemy = enemy
 	self.animation = Animation {
-		frames = animationInfo['frames'],
-		interval = animationInfo['interval'],
-		isLoop = animationInfo['isLoop']
+		frames = self.enemy.animations['idle']['frames'],
+		interval = self.enemy.animations['idle']['interval'],
+		isLoop = self.enemy.animations['idle']['isLoop']
 	}
 	self.enemy.currentAnimation = self.animation
 end

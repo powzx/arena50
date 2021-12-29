@@ -16,13 +16,14 @@ function Enemy:init(map, key, def)
 	self.hitbox = Hitbox(self, def.hitboxOffsetXLeft, def.hitboxOffsetXRight, def.hitboxOffsetWidth)
 
 	self.animations = def.animations
+	self.walkSpeed = def.walkSpeed
 
 	self.stateMachine = StateMachine {
-		['idle'] = function() return EnemyIdleState(self, self.animations['idle']) end,
-		['hit'] = function() return EnemyHitState(self, self.animations['hit']) end,
-		['dead'] = function() return EnemyDeadState(self, self.animations['dead']) end,
-		['attack'] = function() return EnemyAttackState(self, self.animations['attack']) end,
-		['walk'] = function() return EnemyWalkingState(self, self.animations['walk']) end
+		['idle'] = function() return EnemyIdleState(self) end,
+		['hit'] = function() return EnemyHitState(self) end,
+		['dead'] = function() return EnemyDeadState(self) end,
+		['attack'] = function() return EnemyAttackState(self) end,
+		['walk'] = function() return EnemyWalkingState(self) end
 	}
 	self.stateMachine:change('idle')
 

@@ -7,6 +7,7 @@ ENEMY_DEFS = {
 		hitboxOffsetXLeft = -14,
 		hitboxOffsetXRight = 20,
 		hitboxOffsetWidth = -2,
+		walkSpeed = 20,
 		animations = {
 			['idle'] = {
 				frames = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11},

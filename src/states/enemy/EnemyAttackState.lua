@@ -1,11 +1,11 @@
 EnemyAttackState = Class{__includes = BaseState}
 
-function EnemyAttackState:init(enemy, animationInfo)
+function EnemyAttackState:init(enemy)
 	self.enemy = enemy
 	self.animation = Animation {
-		frames = animationInfo['frames'],
-		interval = animationInfo['interval'],
-		isLoop = animationInfo['isLoop']
+		frames = self.enemy.animations['attack']['frames'],
+		interval = self.enemy.animations['attack']['interval'],
+		isLoop = self.enemy.animations['attack']['isLoop']
 	}
 	self.enemy.currentAnimation = self.animation
 

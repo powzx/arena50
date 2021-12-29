@@ -16,7 +16,7 @@ function Animation:update(dt)
         if self.timer > self.interval then
             self.timer = self.timer % self.interval
 
-            if self.isLoop or not (self.currentFrame == #self.frames) then
+            if self.isLoop or not (self.currentFrame >= #self.frames) then
                 self.currentFrame = math.max(1, (self.currentFrame + 1) % (#self.frames + 1))
             else
                 self.isDone = true

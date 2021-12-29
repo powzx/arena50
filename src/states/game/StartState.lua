@@ -19,7 +19,7 @@ function StartState:enter(params)
 end
 
 function StartState:update(dt)
-	if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
+	if love.keyboard.wasPressed('right') then
 		gStateMachine:change('play', {kills = 0})
 	end
 end
@@ -35,7 +35,7 @@ function StartState:render()
 
     love.graphics.setFont(gFonts['medium'])
     love.graphics.setColor(0, 0, 0, 1)
-    love.graphics.printf('Press Enter', 1, VIRTUAL_HEIGHT / 2 + 17, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('Press Right Arrow', 1, VIRTUAL_HEIGHT / 2 + 17, VIRTUAL_WIDTH, 'center')
     love.graphics.setColor(1, 1, 1, 1)
-    love.graphics.printf('Press Enter', 0, VIRTUAL_HEIGHT / 2 + 16, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('Press Right Arrow', 0, VIRTUAL_HEIGHT / 2 + 16, VIRTUAL_WIDTH, 'center')
 end

@@ -5,6 +5,7 @@ Timer = require 'lib/knife.timer'
 require 'src/Animation'
 require 'src/constants'
 require 'src/Enemy'
+require 'src/enemy_defs'
 require 'src/GameLevel'
 require 'src/Hitbox'
 require 'src/Hurtbox'
@@ -43,11 +44,11 @@ gTextures = {
 	['background-winter'] = love.graphics.newImage('graphics/background_winter.png'),
 	['tileset-winter'] = love.graphics.newImage('graphics/tileset_winter.png'),
 	['player'] = love.graphics.newImage('graphics/player.png'),
-	['enemy-idle'] = love.graphics.newImage('graphics/enemy_idle.png'),
-	['enemy-hit'] = love.graphics.newImage('graphics/enemy_hit.png'),
-	['enemy-dead'] = love.graphics.newImage('graphics/enemy_dead.png'),
-	['enemy-attack'] = love.graphics.newImage('graphics/enemy_attack.png'),
-	['enemy-walk'] = love.graphics.newImage('graphics/enemy_walk.png'),
+	['skeleton-idle'] = love.graphics.newImage('graphics/skeleton_idle.png'),
+	['skeleton-hit'] = love.graphics.newImage('graphics/skeleton_hit.png'),
+	['skeleton-dead'] = love.graphics.newImage('graphics/skeleton_dead.png'),
+	['skeleton-attack'] = love.graphics.newImage('graphics/skeleton_attack.png'),
+	['skeleton-walk'] = love.graphics.newImage('graphics/skeleton_walk.png'),
 	['hearts'] = love.graphics.newImage('graphics/hearts.png')
 }
 
@@ -61,11 +62,11 @@ gFrames = {
 	['background-winter'] = GenerateQuads(gTextures['background-winter'], 288, 208),
 	['tileset-winter'] = GenerateQuads(gTextures['tileset-winter'], 16, 16),
 	['player'] = GenerateQuads(gTextures['player'], 50, 37),
-	['enemy-idle'] = GenerateQuads(gTextures['enemy-idle'], 24, 32),
-	['enemy-hit'] = GenerateQuads(gTextures['enemy-hit'], 30, 32),
-	['enemy-dead'] = GenerateQuads(gTextures['enemy-dead'], 33, 32),
-	['enemy-attack'] = GenerateQuads(gTextures['enemy-attack'], 43, 37),
-	['enemy-walk'] = GenerateQuads(gTextures['enemy-walk'], 22, 33),
+	['skeleton-idle'] = GenerateQuads(gTextures['skeleton-idle'], 24, 32),
+	['skeleton-hit'] = GenerateQuads(gTextures['skeleton-hit'], 30, 32),
+	['skeleton-dead'] = GenerateQuads(gTextures['skeleton-dead'], 33, 32),
+	['skeleton-attack'] = GenerateQuads(gTextures['skeleton-attack'], 43, 37),
+	['skeleton-walk'] = GenerateQuads(gTextures['skeleton-walk'], 22, 33),
 	['hearts'] = GenerateQuads(gTextures['hearts'], 16, 16)
 }
 

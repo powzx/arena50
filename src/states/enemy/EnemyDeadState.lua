@@ -1,11 +1,11 @@
 EnemyDeadState = Class{__includes = BaseState}
 
-function EnemyDeadState:init(enemy)
+function EnemyDeadState:init(enemy, animationInfo)
 	self.enemy = enemy
 	self.animation = Animation {
-		frames = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
-		interval = 0.1,
-		isLoop = false
+		frames = animationInfo['frames'],
+		interval = animationInfo['interval'],
+		isLoop = animationInfo['isLoop']
 	}
 	self.enemy.currentAnimation = self.animation
 

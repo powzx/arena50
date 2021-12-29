@@ -15,6 +15,7 @@ function Enemy:init(map, key, def)
 	self.hurtbox = Hurtbox(self, def.hurtboxOffsetX, def.hurtboxOffsetWidth)
 	self.hitbox = Hitbox(self, def.hitboxOffsetXLeft, def.hitboxOffsetXRight, def.hitboxOffsetWidth)
 
+	self.renderOffsets = def.renderOffsets
 	self.animations = def.animations
 	self.walkSpeed = def.walkSpeed
 
@@ -53,13 +54,19 @@ end
 
 function Enemy:calculateRenderOffset()
 	if self.stateMachine.name == 'attack' then
-		self.offsetX = 2
-		self.offsetY = -5
+		self.offsetX = self.renderOffsets['attack']['x']
+		self.offsetY = self.renderOffsets['attack']['y']
 	elseif self.stateMachine.name == 'hit' then
-		self.offsetX = 5
-		self.offsetY = 0
-	else
-		self.offsetX = 0
-		self.offsetY = 0
+		self.offsetX = self.renderOffsets['hit']['x']
+		self.offsetY = self.renderOffsets['hit']['y']
+	elseif self.stateMachine.name == 'dead' then
+		self.offsetX = self.renderOffsets['dead']['x']
+		self.offsetY = self.renderOffsets['dead']['y']
+	elseif self.stateMachine.name == 'idle' then
+		self.offsetX = self.renderOffsets['idle']['x']
+		self.offsetY = self.renderOffsets['idle']['y']
+	elseif self.stateMachine.name == 'walk' then
+		self.offsetX = self.renderOffsets['walk']['x']
+		self.offsetY = self.renderOffsets['walk']['y']
 	end
 end

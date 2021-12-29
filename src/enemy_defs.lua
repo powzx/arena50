@@ -8,6 +8,28 @@ ENEMY_DEFS = {
 		hitboxOffsetXRight = 20,
 		hitboxOffsetWidth = -2,
 		walkSpeed = 20,
+		renderOffsets = {
+			['attack'] = {
+				x = 2,
+				y = -5
+			},
+			['hit'] = {
+				x = 5,
+				y = 0
+			},
+			['dead'] = {
+				x = 0,
+				y = 0
+			},
+			['idle'] = {
+				x = 0,
+				y = 0
+			},
+			['walk'] = {
+				x = 0,
+				y = 0
+			}
+		},
 		animations = {
 			['idle'] = {
 				frames = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11},

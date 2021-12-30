@@ -107,7 +107,7 @@ ENEMY_DEFS = {
 			},
 			['hit'] = {
 				frames = {1},
-				interval = 0.1,
+				interval = 1,
 				isLoop = false
 			},
 			['dead'] = {

@@ -33,6 +33,7 @@ function Enemy:init(map, key, def)
 	self.map = map
 	self.direction = 'left'
 
+	self.maxHealth = def.health
 	self.health = def.health
 	self.isDead = false
 end

@@ -17,7 +17,8 @@ function EnemyHitState:update(dt)
 	end
 
 	if self.enemy.health <= 0 then
-		self.enemy.map.player.health = self.enemy.map.player.health + 2
+		-- increase player health after each kill up to the player's max health
+		self.enemy.map.player.health = math.min(self.enemy.map.player.maxHealth, self.enemy.map.player.health + (0.5 * self.enemy.maxHealth))
 		self.enemy.map.player.kills = self.enemy.map.player.kills + 1
 		table.insert(self.enemy.map.deadEnemy, self.enemy)
 		self.enemy.stateMachine:change('dead')

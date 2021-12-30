@@ -51,10 +51,10 @@ function Enemy:render()
         self.direction == 'right' and 1 or -1, 1, self.width / 2, self.height / 2)
 
 	-- debug mode
-	self.hurtbox:render()
-	if self.hitbox.isEffective then
-		self.hitbox:render()
-	end
+	-- self.hurtbox:render()
+	-- if self.hitbox.isEffective then
+	-- 	self.hitbox:render()
+	-- end
 end
 
 function Enemy:calculateRenderOffset()

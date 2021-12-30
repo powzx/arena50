@@ -31,7 +31,8 @@ function EnemyWalkingState:update(dt)
 		self.enemy.stateMachine:change('idle')
 	end
 
-	if math.abs(self.enemy.x - self.enemy.map.player.x) < 50 then
+	-- trigger attack if player gets close enough
+	if math.abs(self.enemy.hurtbox.x - self.enemy.map.player.hurtbox.x) < 50 then
 		if self.enemy.hurtbox.x > self.enemy.map.player.hurtbox.x then
 			self.enemy.direction = 'left'
 		else

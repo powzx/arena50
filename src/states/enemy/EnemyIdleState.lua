@@ -13,7 +13,8 @@ end
 function EnemyIdleState:update(dt)
 	self.enemy.currentAnimation:update(dt)
 
-	if math.abs(self.enemy.x - self.enemy.map.player.x) < 50 then
+	-- trigger attack if player gets close enough
+	if math.abs(self.enemy.hurtbox.x - self.enemy.map.player.hurtbox.x) < 50 then
 		if self.enemy.hurtbox.x > self.enemy.map.player.hurtbox.x then
 			self.enemy.direction = 'left'
 		else
@@ -23,6 +24,7 @@ function EnemyIdleState:update(dt)
 		self.enemy.stateMachine:change('attack')
 	end
 
+	-- randomly walk in a random direction, for a random duration
 	if math.random(100) == 1 then
 		self.enemy.direction = (math.random(2) == 1) and 'left' or 'right'
 		self.enemy.stateMachine:change('walk', {limit = math.random(10)})

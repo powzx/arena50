@@ -43,10 +43,10 @@ function Player:render()
         self.direction == 'right' and 1 or -1, 1, PLAYER_WIDTH / 2, PLAYER_HEIGHT / 2)
 
 	-- debug mode
-	self.hurtbox:render()
-	if self.hitbox.isEffective then
-		self.hitbox:render()
-	end
+	-- self.hurtbox:render()
+	-- if self.hitbox.isEffective then
+	-- 	self.hitbox:render()
+	-- end
 end
 
 function Player:checkTileBeneath()

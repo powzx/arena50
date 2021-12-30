@@ -40,11 +40,11 @@ function EnemyWalkingState:update(dt)
 		self.enemy.stateMachine:change('attack')
 	end
 
-	if self.enemy.x <= 0 then
-    	self.enemy.x = 0
+	if self.enemy.x <= -self.enemy.hurtbox.offsetX then
+    	self.enemy.x = -self.enemy.hurtbox.offsetX
     end
 
-    if self.enemy.x >= VIRTUAL_WIDTH - self.enemy.width then
-    	self.enemy.x = VIRTUAL_WIDTH - self.enemy.width
+    if self.enemy.x >= VIRTUAL_WIDTH - self.enemy.hurtbox.width - self.enemy.hurtbox.offsetX then
+    	self.enemy.x = VIRTUAL_WIDTH - self.enemy.hurtbox.width - self.enemy.hurtbox.offsetX
     end
 end

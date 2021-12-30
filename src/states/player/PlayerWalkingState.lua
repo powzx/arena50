@@ -39,12 +39,12 @@ function PlayerWalkingState:update(dt)
         end
     end
 
-    if self.player.x <= 0 then
-    	self.player.x = 0
+    if self.player.x <= -self.player.hurtbox.offsetX then
+        self.player.x = -self.player.hurtbox.offsetX
     end
 
-    if self.player.x >= VIRTUAL_WIDTH - PLAYER_WIDTH then
-    	self.player.x = VIRTUAL_WIDTH - PLAYER_WIDTH
+    if self.player.x >= VIRTUAL_WIDTH - self.player.hurtbox.width - self.player.hurtbox.offsetX then
+        self.player.x = VIRTUAL_WIDTH - self.player.hurtbox.width - self.player.hurtbox.offsetX
     end
 
     if not self.player:checkTileBeneath() then

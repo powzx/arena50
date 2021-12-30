@@ -49,7 +49,12 @@ gTextures = {
 	['skeleton-dead'] = love.graphics.newImage('graphics/skeleton_dead.png'),
 	['skeleton-attack'] = love.graphics.newImage('graphics/skeleton_attack.png'),
 	['skeleton-walk'] = love.graphics.newImage('graphics/skeleton_walk.png'),
-	['hearts'] = love.graphics.newImage('graphics/hearts.png')
+	['hearts'] = love.graphics.newImage('graphics/hearts.png'),
+	['knight-idle'] = love.graphics.newImage('graphics/knight_idle.png'),
+	['knight-hit'] = love.graphics.newImage('graphics/knight_hit.png'),
+	['knight-dead'] = love.graphics.newImage('graphics/knight_dead.png'),
+	['knight-attack'] = love.graphics.newImage('graphics/knight_attack.png'),
+	['knight-walk'] = love.graphics.newImage('graphics/knight_walk.png')
 }
 
 gFrames = {
@@ -67,7 +72,12 @@ gFrames = {
 	['skeleton-dead'] = GenerateQuads(gTextures['skeleton-dead'], 33, 32),
 	['skeleton-attack'] = GenerateQuads(gTextures['skeleton-attack'], 43, 37),
 	['skeleton-walk'] = GenerateQuads(gTextures['skeleton-walk'], 22, 33),
-	['hearts'] = GenerateQuads(gTextures['hearts'], 16, 16)
+	['hearts'] = GenerateQuads(gTextures['hearts'], 16, 16),
+	['knight-idle'] = GenerateQuads(gTextures['knight-idle'], 120, 80),
+	['knight-hit'] = GenerateQuads(gTextures['knight-hit'], 120, 80),
+	['knight-dead'] = GenerateQuads(gTextures['knight-dead'], 120, 80),
+	['knight-attack'] = GenerateQuads(gTextures['knight-attack'], 120, 80),
+	['knight-walk'] = GenerateQuads(gTextures['knight-walk'], 120, 80)
 }
 
 gFonts = {

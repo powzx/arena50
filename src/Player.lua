@@ -10,8 +10,8 @@ function Player:init(map)
 	self.width = PLAYER_WIDTH
 	self.height = PLAYER_HEIGHT
 
-	self.hurtbox = Hurtbox(self, 20, -40)
-	self.hitbox = Hitbox(self, 5, 30, -35)
+	self.hurtbox = Hurtbox(self, 20, 0, -40, 0)
+	self.hitbox = Hitbox(self, 5, 30, 0, -35, 0)
 
 	self.stateMachine = StateMachine {
 		['idle'] = function() return PlayerIdleState(self) end,
@@ -39,10 +39,12 @@ function Player:render()
 	love.graphics.draw(gTextures['player'], gFrames['player'][self.currentAnimation:getCurrentFrame()],
         math.floor(self.x) + PLAYER_WIDTH / 2, math.floor(self.y) + PLAYER_HEIGHT / 2, 0, 
         self.direction == 'right' and 1 or -1, 1, PLAYER_WIDTH / 2, PLAYER_HEIGHT / 2)
-	--self.hurtbox:render()
-	--if self.hitbox.isEffective then
-	--	self.hitbox:render()
-	--end
+
+	-- debug mode
+	self.hurtbox:render()
+	if self.hitbox.isEffective then
+		self.hitbox:render()
+	end
 end
 
 function Player:checkTileBeneath()

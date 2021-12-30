@@ -63,6 +63,6 @@ function Map:spawnEnemies()
 	local numOfEnemies = math.random(1, 4)
 
 	for i = 1, numOfEnemies do
-		table.insert(self.enemy, Enemy(self, 'skeleton', ENEMY_DEFS['skeleton']))
+		table.insert(self.enemy, Enemy(self, 'knight', ENEMY_DEFS['knight']))
 	end
 end

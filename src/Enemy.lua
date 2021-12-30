@@ -12,12 +12,13 @@ function Enemy:init(map, key, def)
 	self.width = def.width
 	self.height = def.height
 
-	self.hurtbox = Hurtbox(self, def.hurtboxOffsetX, def.hurtboxOffsetWidth)
-	self.hitbox = Hitbox(self, def.hitboxOffsetXLeft, def.hitboxOffsetXRight, def.hitboxOffsetWidth)
+	self.hurtbox = Hurtbox(self, def.hurtboxOffsetX, def.hurtboxOffsetY, def.hurtboxOffsetWidth, def.hurtboxOffsetHeight)
+	self.hitbox = Hitbox(self, def.hitboxOffsetXLeft, def.hitboxOffsetXRight, def.hitboxOffsetY, def.hitboxOffsetWidth, def.hitboxOffsetHeight)
 
 	self.renderOffsets = def.renderOffsets
 	self.animations = def.animations
 	self.walkSpeed = def.walkSpeed
+	self.strikeFrame = def.strikeFrame
 
 	self.stateMachine = StateMachine {
 		['idle'] = function() return EnemyIdleState(self) end,
@@ -46,10 +47,12 @@ function Enemy:render()
 	love.graphics.draw(gTextures[self.key .. '-' .. self.stateMachine.name], gFrames[self.key .. '-' .. self.stateMachine.name][self.currentAnimation:getCurrentFrame()],
         math.floor(self.x) + self.width / 2 + self.offsetX, math.floor(self.y) + self.height / 2 + self.offsetY, 0, 
         self.direction == 'right' and 1 or -1, 1, self.width / 2, self.height / 2)
-	--self.hurtbox:render()
-	--if self.hitbox.isEffective then
-	--	self.hitbox:render()
-	--end
+
+	-- debug mode
+	self.hurtbox:render()
+	if self.hitbox.isEffective then
+		self.hitbox:render()
+	end
 end
 
 function Enemy:calculateRenderOffset()

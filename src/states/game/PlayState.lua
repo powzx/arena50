@@ -46,23 +46,15 @@ function PlayState:render()
 
 	love.graphics.draw(gTextures['background-' .. self.set], gFrames['background-' .. self.set][1], 0, 0)
 	self.map:render()
-
-	local health = self.map.player.health
-	local heartFrame
-	for i = 1, 3 do
-        if health > 1 then
-            heartFrame = 5
-        elseif health == 1 then
-            heartFrame = 3
-        else
-            heartFrame = 1
-        end
-
-        love.graphics.draw(gTextures['hearts'], gFrames['hearts'][heartFrame],
-            (i - 1) * (TILE_SIZE + 1), 2)
-        
-        health = health - 2
-    end
+	
+	-- render health bar
+	love.graphics.draw(gTextures['hearts'], gFrames['hearts'][5], 2, 2)
+	local healthBarWidth = (self.map.player.health / PLAYER_MAX_HEALTH) * 150
+    love.graphics.setColor(1, 1, 0, 1)
+    love.graphics.rectangle('fill', 20, 8, healthBarWidth, 5, 3)
+    love.graphics.setColor(0, 0, 0, 1)
+    love.graphics.rectangle('line', 20, 8, 150, 5, 3)
+    love.graphics.setColor(1, 1, 1, 1)
 
     if self.isComplete then
     	love.graphics.setFont(gFonts['medium'])

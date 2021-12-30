@@ -19,6 +19,7 @@ function Enemy:init(map, key, def)
 	self.animations = def.animations
 	self.walkSpeed = def.walkSpeed
 	self.strikeFrame = def.strikeFrame
+	self.damage = def.damage
 
 	self.stateMachine = StateMachine {
 		['idle'] = function() return EnemyIdleState(self) end,
@@ -32,7 +33,7 @@ function Enemy:init(map, key, def)
 	self.map = map
 	self.direction = 'left'
 
-	self.health = 6
+	self.health = def.health
 	self.isDead = false
 end
 

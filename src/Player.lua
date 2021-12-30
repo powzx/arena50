@@ -25,7 +25,7 @@ function Player:init(map)
 	self.map = map
 	self.direction = 'right'
 
-	self.health = 6
+	self.health = 100
 	self.kills = 0
 end
 

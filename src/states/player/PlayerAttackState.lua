@@ -13,7 +13,7 @@ function PlayerAttackState:init(player)
 
 	for k, enemy in pairs(self.player.map.enemy) do
 		if not enemy.isDead and self.player.hitbox:collides(enemy.hurtbox) then
-			enemy.health = enemy.health - 20
+			enemy.health = enemy.health - self.player.damage
 			enemy.stateMachine:change('hit')
 		end
 	end

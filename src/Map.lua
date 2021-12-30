@@ -6,7 +6,7 @@ function Map:init(width, height, set)
 	self.height = height
 	self.set = set
 
-	self.player = Player(self)
+	self.player = Player(self, PLAYER_DEFS['default'], WEAPON_DEFS['default'])
 
 	self.enemy = {}
 	self.deadEnemy = {}

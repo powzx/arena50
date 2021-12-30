@@ -49,7 +49,7 @@ function PlayState:render()
 	
 	-- render health bar
 	love.graphics.draw(gTextures['hearts'], gFrames['hearts'][5], 2, 2)
-	local healthBarWidth = (self.map.player.health / PLAYER_MAX_HEALTH) * 150
+	local healthBarWidth = (self.map.player.health / self.map.player.maxHealth) * 150
     love.graphics.setColor(1, 1, 0, 1)
     love.graphics.rectangle('fill', 20, 8, healthBarWidth, 5, 3)
     love.graphics.setColor(0, 0, 0, 1)

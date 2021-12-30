@@ -1,6 +1,6 @@
 Player = Class{}
 
-function Player:init(map)
+function Player:init(map, def, weapon)
 	self.x = 0
 	self.y = -PLAYER_HEIGHT
 
@@ -10,8 +10,8 @@ function Player:init(map)
 	self.width = PLAYER_WIDTH
 	self.height = PLAYER_HEIGHT
 
-	self.hurtbox = Hurtbox(self, 20, 0, -40, 0)
-	self.hitbox = Hitbox(self, 5, 30, 0, -35, 0)
+	self.hurtbox = Hurtbox(self, PLAYER_HURTBOX_OFFSET_X, PLAYER_HURTBOX_OFFSET_Y, PLAYER_HURTBOX_OFFSET_WIDTH, PLAYER_HURTBOX_OFFSET_HEIGHT)
+	self.hitbox = Hitbox(self, PLAYER_HITBOX_OFFSET_X_LEFT, PLAYER_HITBOX_OFFSET_X_RIGHT, PLAYER_HITBOX_OFFSET_Y, PLAYER_HITBOX_OFFSET_WIDTH, PLAYER_HITBOX_OFFSET_HEIGHT)
 
 	self.stateMachine = StateMachine {
 		['idle'] = function() return PlayerIdleState(self) end,
@@ -25,7 +25,9 @@ function Player:init(map)
 	self.map = map
 	self.direction = 'right'
 
-	self.health = 100
+	self.health = def.maxHealth
+	self.maxHealth = def.maxHealth
+	self.damage = weapon.damage
 	self.kills = 0
 end
 

@@ -60,9 +60,13 @@ function Map:pointToTile(x, y)
 end
 
 function Map:spawnEnemies()
-	local numOfEnemies = math.random(1, 4)
+	local numOfSkeletons = math.random(1, 3)
 
-	for i = 1, numOfEnemies do
+	for i = 1, numOfSkeletons do
+		table.insert(self.enemy, Enemy(self, 'skeleton', ENEMY_DEFS['skeleton']))
+	end
+
+	if math.random(2) == 1 then
 		table.insert(self.enemy, Enemy(self, 'knight', ENEMY_DEFS['knight']))
 	end
 end

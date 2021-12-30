@@ -4,6 +4,7 @@ function GameOverState:init()
 end
 
 function GameOverState:enter(params)
+	gSounds['game-over']:play()
 	self.set = params.set
 	self.kills = params.kills
 end

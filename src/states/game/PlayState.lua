@@ -30,7 +30,8 @@ function PlayState:update(dt)
 		gStateMachine:change('game-over', {set = self.set, kills = self.map.player.kills})
 	end
 
-	if #self.map.enemy == #self.map.deadEnemy then
+	if not self.isComplete and #self.map.enemy == #self.map.deadEnemy then
+		gSounds['level-complete']:play()
 		self.isComplete = true
 	end
 

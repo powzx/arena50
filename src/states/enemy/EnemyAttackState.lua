@@ -16,6 +16,7 @@ function EnemyAttackState:update(dt)
 	self.enemy.currentAnimation:update(dt)
 
 	if self.enemy.currentAnimation.currentFrame == self.enemy.strikeFrame and self.enemy.hitbox:collides(self.enemy.map.player.hurtbox) then
+		gSounds['hurt']:play()
 		self.enemy.hitbox.isEffective = false
 		self.enemy.map.player.health = self.enemy.map.player.health - self.enemy.damage
 	end

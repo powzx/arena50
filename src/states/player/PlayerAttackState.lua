@@ -19,6 +19,11 @@ function PlayerAttackState:init(player)
 	end
 end
 
+function PlayerAttackState:enter(params)
+	gSounds['sword-swing']:stop()
+	gSounds['sword-swing']:play()
+end
+
 function PlayerAttackState:update(dt)
 	self.player.currentAnimation:update(dt)
 	if self.animation.isDone then

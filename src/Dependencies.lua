@@ -32,7 +32,13 @@ require 'src/states/enemy/EnemyDeadState'
 require 'src/states/enemy/EnemyWalkingState'
 
 gSounds = {
-
+	['music'] = love.audio.newSource('sounds/music.wav', 'static'),
+	['jump'] = love.audio.newSource('sounds/jump.wav', 'static'),
+	['sword-swing'] = love.audio.newSource('sounds/sword_swing.wav', 'static'),
+	['hurt'] = love.audio.newSource('sounds/hurt.wav', 'static'),
+	['game-over'] = love.audio.newSource('sounds/game_over.wav', 'static'),
+	['level-complete'] = love.audio.newSource('sounds/level_complete.wav', 'static'),
+	['enemy-death'] = love.audio.newSource('sounds/enemy_death.wav', 'static')
 }
 
 gTextures = {

@@ -62,7 +62,7 @@ An enemy character is spawned at a random location (random x-value) on the map i
 
 Each type of enemy will have a `strikeFrame` which is the frame of the 'attack' animation at which a hit can be registered on the player. Therefore, on other frames of the 'attack' animation, a hit will not be registered even if the hitbox of the enemy collides with the hurtbox of the main character. This is because the 'attack' animation frames for the enemies are found to have only one specific frame that is the 'strike' of the attack, where other frames are just moving the weapon to position. Hence, this design is considered to make it fairer to the player.
 
-When the hitbox of the main character collides with the hurtbox of the enemy, the enemy transits to the hit state, and if the enemy's health falls to 0 at this hit, the enemy transits to the dead state where a flag `Enemy.isDead` is set so that subsequent collisions will not continue to register as a hit.
+When the hitbox of the main character collides with the hurtbox of the enemy, the enemy transits to the hit state, and if the enemy's health falls to 0 at this hit, the enemy transits to the dead state where a flag `Enemy.isDead` is set so that subsequent collisions will not continue to register as a hit. When an enemy is dead, the main character's health will increase by an amount equals to half of the enemy's maximum health, as seen in `EnemyHitState.lua`.
 
 ### Hitbox and Hurtbox
 

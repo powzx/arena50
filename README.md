@@ -70,6 +70,8 @@ A hitbox is associated with every instance of the main character and the enemy t
 
 A hurtbox is instantiated with the offsets along the X and Y axes from the origin (top-left corner) of the character sprite, and the offsets to the width and height of the character sprite. A hitbox is also instantiated with the relevant offsets, however two different offset values (`offsetXLeft` and `offsetXRight`) along the X axis are needed for the attacks in the left and right directions.
 
+In `Enemy:render()` and `Player:render()` methods, there are code snippets that developers can uncomment on to activate the debug mode, which will render the hitbox and hurtbox of the main character and enemies. This will allow easier debugging of the collision detection algorithm.
+
 ### Data-driven Programming
 
 Arena 50 also makes use of data-driven programming with the following data files:
